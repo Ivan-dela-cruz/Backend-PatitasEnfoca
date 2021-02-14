@@ -10,6 +10,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.patitas.model.Menu;
+import com.patitas.model.Perfil;
 import com.patitas.model.User;
 
 public class UserDetailsImpl implements UserDetails  {
@@ -27,26 +29,36 @@ public class UserDetailsImpl implements UserDetails  {
 
 	private Collection<? extends GrantedAuthority> authorities;
 	
+	private List<Menu> menus_autorizados;
+	
+	
 	public UserDetailsImpl(Long id, String username, String email, String password,
-			Collection<? extends GrantedAuthority> authorities) {
+			Collection<? extends GrantedAuthority> authorities, List<Menu> menus) {
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.authorities = authorities;
+		this.menus_autorizados=menus;
 	}
 	
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = user.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.getName().name()))
 				.collect(Collectors.toList());
+		
+		List<List<Perfil>> authorities2 = user.getRoles().stream().map(role-> role.getPerfiles().stream().collect(Collectors.toList())).collect(Collectors.toList());
+
+		List<Menu> list = authorities2.stream().flatMap(l-> l.stream().map(a->a.getMenu())).collect(Collectors.toList());
+		
+		//list.forEach(me->me.getIdPadre());
 
 		return new UserDetailsImpl(
 				user.getId(), 
 				user.getUsername(), 
 				user.getEmail(),
 				user.getPassword(), 
-				authorities);
+				authorities, list);
 	}
 
 
@@ -118,8 +130,12 @@ public class UserDetailsImpl implements UserDetails  {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
 
+	public List<Menu> getMenus_autorizados() {
+		return menus_autorizados;
+	}
+
+	public void setMenus_autorizados(List<Menu> menus_autorizados) {
+		this.menus_autorizados = menus_autorizados;
+	}
 }

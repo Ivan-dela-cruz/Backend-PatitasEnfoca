@@ -1,6 +1,18 @@
 package com.patitas.model;
 
-import javax.persistence.*;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
@@ -13,6 +25,10 @@ public class Role {
 	@Enumerated(EnumType.STRING)
 	@Column(length = 20)
 	private ERole name;
+	
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name = "rol")
+	private Set<Perfil> perfiles;	
 	
 	public Role() {
 
@@ -36,5 +52,13 @@ public class Role {
 
 	public void setName(ERole name) {
 		this.name = name;
+	}
+
+	public Set<Perfil> getPerfiles() {
+		return perfiles;
+	}
+
+	public void setPerfiles(Set<Perfil> perfiles) {
+		this.perfiles = perfiles;
 	}
 }
