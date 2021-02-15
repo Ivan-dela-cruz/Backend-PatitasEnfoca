@@ -24,10 +24,13 @@ public class User {
 	@Column(name = "nombres")
 	private String nombres;
 	
-	
 	@Size(max = 20)
 	@Column(name = "apellidos")
 	private String apellidos;
+	
+	@Size(max = 10)
+	@Column(name = "identificacion")
+	private String identificacion;
 	
 	
 	@NotBlank
@@ -126,6 +129,12 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
-	
-	
+
+	public String getIdentificacion() {
+		return identificacion;
+	}
+
+	public void setIdentificacion(String identificacion) {
+		this.identificacion = identificacion;
+	}
 }

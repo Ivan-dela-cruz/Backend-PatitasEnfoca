@@ -44,7 +44,7 @@ public class EmpresaController {
 	}
 
 	@GetMapping("/empresas/{id}")
-	public ResponseEntity<Empresa> getTutorialById(@PathVariable("id") long id) {
+	public ResponseEntity<Empresa> getEmpresaById(@PathVariable("id") long id) {
 		Optional<Empresa> empresaData = empresaRepository.findById(id);
 		if (empresaData.isPresent()) {
 			return new ResponseEntity<>(empresaData.get(), HttpStatus.OK);
@@ -54,7 +54,7 @@ public class EmpresaController {
 	}
 
 	@PostMapping("/empresa")
-	public ResponseEntity<Empresa> createTutorial(@RequestBody Empresa empresa) {
+	public ResponseEntity<Empresa> createEmpresa(@RequestBody Empresa empresa) {
 		try {
 			Empresa _empresa = empresaRepository.save(new Empresa(empresa.getRuc(), empresa.getNombre(),
 					empresa.getComercial(), empresa.getTelefono1(), empresa.getTelefono2(), empresa.getCallePrincipal(),
@@ -66,7 +66,7 @@ public class EmpresaController {
 	}
 
 	@PutMapping("/empresas/{id}")
-	public ResponseEntity<Empresa> updateTutorial(@PathVariable("id") long id, @RequestBody Empresa empresa) {
+	public ResponseEntity<Empresa> updateEmpresa(@PathVariable("id") long id, @RequestBody Empresa empresa) {
 		Optional<Empresa> tutorialData = empresaRepository.findById(id);
 
 		if (tutorialData.isPresent()) {
@@ -88,7 +88,7 @@ public class EmpresaController {
 	}
 
 	@DeleteMapping("/empresas/{id}")
-	public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
+	public ResponseEntity<HttpStatus> deleteEmpresa(@PathVariable("id") long id) {
 		try {
 			empresaRepository.deleteById(id);
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -97,14 +97,4 @@ public class EmpresaController {
 		}
 	}
 
-	@DeleteMapping("/empresas")
-	public ResponseEntity<HttpStatus> deleteAllTutorials() {
-		try {
-			empresaRepository.deleteAll();
-			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		} catch (Exception e) {
-			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-
-	}
 }
