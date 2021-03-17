@@ -29,13 +29,13 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+ 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>2.4.1</version>
 		</dependency>
-
+ 
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
@@ -58,12 +58,12 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-
+<!-- 
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-
+-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -84,31 +84,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 
-			<plugin>
-				<groupId>org.flywaydb</groupId>
-				<artifactId>flyway-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>migrate</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<driver>org.postgresql.Driver</driver>
-					<url>jdbc:postgresql://localhost:5432/enfoca</url>
-					<user>postgres</user>
-					<password>andres</password>
-					<baselineOnMigrate>true</baselineOnMigrate>
-					<schemas>public</schemas>
-					<locations>
-						<location>
-							filesystem:src/main/resources/db/migration
-						</location>
-					</locations>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
