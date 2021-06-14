@@ -56,6 +56,14 @@ public class User {
 	private Set<Role> roles = new HashSet<>();
 	
 	
+	@Enumerated(EnumType.STRING)
+	@Column(length=20)
+    private EGenero genero;
+	
+	@Transient
+	private Set<String> role;
+	
+	
 	public User(String nombres, String apellidos, String email, String password, String username) {
 		super();
 		this.nombres = nombres;
@@ -136,5 +144,21 @@ public class User {
 
 	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
+	}
+
+	public EGenero getGenero() {
+		return genero;
+	}
+
+	public void setGenero(EGenero genero) {
+		this.genero = genero;
+	}
+
+	public Set<String> getRole() {
+		return role;
+	}
+
+	public void setRole(Set<String> role) {
+		this.role = role;
 	}
 }

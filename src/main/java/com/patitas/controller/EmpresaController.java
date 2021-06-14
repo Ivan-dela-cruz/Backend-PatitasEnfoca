@@ -23,7 +23,7 @@ import com.patitas.repository.EmpresaRepository;
 
 @CrossOrigin(origins = "http://localhost:8080")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/test/")
 public class EmpresaController {
 
 	@Autowired
@@ -53,7 +53,7 @@ public class EmpresaController {
 		}
 	}
 
-	@PostMapping("/empresa")
+	@PostMapping("/empresas")
 	public ResponseEntity<Empresa> createEmpresa(@RequestBody Empresa empresa) {
 		try {
 			Empresa _empresa = empresaRepository.save(new Empresa(empresa.getRuc(), empresa.getNombre(),

@@ -1,0 +1,46 @@
+server:
+  port: 9001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+spring:
+  application:
+    name: AUTH-APP
+  datasource:
+    url: jdbc:postgresql://localhost:5432/enfoca
+    username: postgres
+    password: andres
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  flyway:
+    baseline-on-migrate: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+    
+        
+            
+    
+      
+      
+
+
+
+
+
+
+

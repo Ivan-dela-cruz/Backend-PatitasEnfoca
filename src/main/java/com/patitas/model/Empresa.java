@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 @Table(name = "empresas")
 public class Empresa {
@@ -21,6 +23,7 @@ public class Empresa {
 	@Column(name = "nombre")
 	private String nombre;
 
+	
 	@Column(name = "comercial")
 	private String comercial;
 	
@@ -39,12 +42,20 @@ public class Empresa {
 	@Column(name = "numero")
 	private String numero;
 	
+	
 	@Column(name = "ciudad")
 	private String ciudad;
 	
 	@Column(name = "referencia")
 	private String referencia;
 	
+	
+	
+
+	public Empresa() {
+		super();
+	}
+
 
 	public Empresa(String ruc, String nombre, String comercial, String telefono1, String telefono2,
 			String callePrincipal, String calle_secundaria, String numero, String ciudad, String referencia) {
@@ -60,6 +71,16 @@ public class Empresa {
 		this.ciudad = ciudad;
 		this.referencia = referencia;
 	}
+	
+
+	public Empresa( @JsonProperty("ruc") String ruc, @JsonProperty("nombre") String nombre, @JsonProperty("comercial") String comercial, @JsonProperty("ciudad") String ciudad) {
+		super();
+		this.ruc = ruc;
+		this.nombre = nombre;
+		this.comercial = comercial;
+		this.ciudad = ciudad;
+	}
+
 
 	public long getId() {
 		return id;
