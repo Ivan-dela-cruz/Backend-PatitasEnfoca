@@ -1,0 +1,27 @@
+ejecutar api de registro
+post
+http://localhost:8080/api/auth/signup
+
+body raw json
+{
+    "nombres":"fr",
+    "apellido":"fr",
+    "identificacion":"1714688213",
+    "username": "g@mail.com",
+    "email" : "g@mail.com",
+    "role" : ["admin"],
+    "password": "123456"
+
+}
+
+
+todo esta en esta web
+https://bezkoder.com/spring-boot-jwt-authentication/
+
+/* a realizar */
+Servicios
+
+Registro de la empresa
+Registro de la fundacion
+Registro del adoptante
+Buscar adoptante

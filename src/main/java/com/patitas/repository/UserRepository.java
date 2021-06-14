@@ -19,6 +19,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
 	Boolean existsByEmail(String email);
 	
+	
 	@Query("select u from User u where u.nombres like '%'+'searchName'+'%' or u.apellidos like '%'+'%searchName%'+'%' or u.identificacion  like '%'+'searchName'+'%'")
 	List<User> findUsersBySearchName(@Param("searchName") String searchName);
 	
