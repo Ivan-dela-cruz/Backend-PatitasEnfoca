@@ -1,0 +1,280 @@
+{
+	"info": {
+		"_postman_id": "0c78507d-3d0b-4575-85bb-48f64247f69c",
+		"name": "Api Patitas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Indicadores",
+			"item": [
+				{
+					"name": "cantidadUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmR5IiwiaWF0IjoxNjI0MjQ1OTQ0LCJleHAiOjE2MjQzMzIzNDR9.4IIkxIVCpTaQp_QdXgRA0fhpRbdKZVYMyqfPyPvja2Nckh7rvVIELL2lB5R5zmzoPYuJ6JtR-DRD0ygGxTfeIQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9001/api/indicador/usuariosCantidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"indicador",
+								"usuariosCantidad"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cantidadAdopciones",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmR5IiwiaWF0IjoxNjI0MjQ1OTQ0LCJleHAiOjE2MjQzMzIzNDR9.4IIkxIVCpTaQp_QdXgRA0fhpRbdKZVYMyqfPyPvja2Nckh7rvVIELL2lB5R5zmzoPYuJ6JtR-DRD0ygGxTfeIQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:9001/api/indicador/usuariosCantidad",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"indicador",
+								"usuariosCantidad"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SingUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"username\": \"mod\", \n\"email\": \"mod@gmail.com\",\n\"password\": \"12345678\",\n\"role\": [\"mod\", \"user\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contenido Publico",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/test/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contenido User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtb2QiLCJpYXQiOjE2MTAxNTUzNDEsImV4cCI6MTYxMDI0MTc0MX0.zO4gqs06xeL2TZs7o5HBPVaaieHtpnP--1wO-3BvkDJouG181ZrfP8M8_DvICQYVvp1gWtE_qGVnRQfSstuVZA",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/test/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"test",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"andy\",\n\t\"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/api/auth/signin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Empresa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"ruc\": \"1722714795001\",\r\n  \"nombre\": \"Mercado Libre\",\r\n  \"comercial\": \"Mercado Libre\",\r\n  \"ciudad\": \"Quito\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/api/test/empresas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"test",
+						"empresas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Empresa Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/api/test/empresas/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"test",
+						"empresas",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Empresa Copy 2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/api/test/empresas/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"test",
+						"empresas",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro Adopción",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fechaAdopcion\": \"20/06/2021 13:02:02 \",\r\n    \"usuario\": {\r\n        \"id\": \"\",\r\n        \"username\": \"q1as45\",\r\n        \"nombre\": \"asd789\",\r\n        \"apellido\": \"as7896\",\r\n        \"email\": \"7897@yahoo.com\",\r\n        \"identificacion\": \"1025789652\",\r\n        \"genero\": \"MASCULINO\"\r\n    },\r\n    \"listaMascotas\": [{\r\n        \"nombre\":\"matiur\",\r\n         \"meses\":\"12\",\r\n         \"genero\": \"M\"\r\n    }]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/api/test/registrarAdoccion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"api",
+						"test",
+						"registrarAdoccion"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
