@@ -18,8 +18,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "adoptantes")
-public class Adoptantes {
+@Table(name = "adopciones")
+public class Adopcion {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

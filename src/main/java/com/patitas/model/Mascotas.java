@@ -29,13 +29,11 @@ public class Mascotas {
 	private Date fechaNacimiento;
 	
 	@Column(name = "edad_perro")
-    private Integer edadPerro;
+    private Double edadPerro;
 	
-	@Column(name="anos_perros")
-	private Integer anosPerros;
 	
 	 @ManyToOne
-	 private Adoptantes adoptante;
+	 private Adopcion adoptante;
 
 	public Mascotas() {
 		super();
@@ -65,21 +63,20 @@ public class Mascotas {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public Integer getEdadPerro() {
+	public Double getEdadPerro() {
 		return edadPerro;
 	}
 
-	public Integer getAnosPerros() {
-		return anosPerros;
-	}
-
-	public Adoptantes getAdoptante() {
+	public Adopcion getAdoptante() {
 		return adoptante;
 	}
 
-	public void setAdoptante(Adoptantes adoptante) {
+	public void setAdoptante(Adopcion adoptante) {
 		this.adoptante = adoptante;
 	}
-	
+
+	public void setEdadPerro(Double edadPerro) {
+		this.edadPerro = edadPerro;
+	}
 	
 }

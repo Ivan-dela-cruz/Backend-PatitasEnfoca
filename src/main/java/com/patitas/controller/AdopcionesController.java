@@ -9,7 +9,6 @@ import java.util.Optional;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,8 +28,8 @@ import com.patitas.repository.UserRepository;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/test")
-public class TestController {
+@RequestMapping("/api/adopcion")
+public class AdopcionesController {
 	
 	@Autowired
 	MascotaRepository mascotaRepository;
@@ -44,36 +43,11 @@ public class TestController {
 	@Autowired
 	UserRepository userRepository;
 
-	@GetMapping("/all")
-	public String allAccess() {
-		return "Public Content.";
-	}
-	
-	@GetMapping("/user")
-	@PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
-	public String userAccess() {
-		return "User Content.";
-	}
-
-	@GetMapping("/mod")
-	@PreAuthorize("hasRole('MODERATOR')")
-	public String moderatorAccess() {
-		return "Moderator Board.";
-	}
-
-	@GetMapping("/admin")
-	@PreAuthorize("hasRole('ADMIN')")
-	public String adminAccess() {
-		return "Admin Board.";
-	}
-	
 	@PostMapping("/registrarAdoccion")
 	public String guardarRegistroAdopcion(@RequestBody AdoptantesRequest adoptante	) throws ParseException {	
-	 // Adoptantes adoptante= new Adoptantes();
 	  System.out.println("Llega aqui"+adoptante.getFechaAdopcion());
 	  System.out.println("Llega aqui"+adoptante.getUsuario().toString());
 	  Adopcion adopcion= new Adopcion();	
-
 	  try {
 	  adopcion.setFechaAdopcion(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse((String) adoptante.getFechaAdopcion()));
 	  } catch (ParseException e) {
@@ -113,11 +87,6 @@ public class TestController {
 	  return "guardado correctamente";
 	}
 	
-	
-	
-	
-	
-
 	@GetMapping("/registrarMascota")
 	public String guardarRegistroMascota() {
 		

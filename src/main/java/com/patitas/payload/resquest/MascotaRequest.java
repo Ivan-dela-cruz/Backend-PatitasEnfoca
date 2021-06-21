@@ -1,7 +1,5 @@
 package com.patitas.payload.resquest;
 
-import java.util.Date;
-
 public class MascotaRequest {
 
    
@@ -9,7 +7,7 @@ public class MascotaRequest {
 	private String nombre;
 	private String fechaNacimiento;
 	private Integer edadPerro;
-	private Integer anosPerros;
+	private Double meses;
 	public long getId() {
 		return id;
 	}
@@ -28,19 +26,17 @@ public class MascotaRequest {
 	public void setFechaNacimiento(String fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
-	public Integer getEdadPerro() {
-		return edadPerro;
+	public Double getEdadPerro() {
+		return meses/12;
 	}
 	public void setEdadPerro(Integer edadPerro) {
 		this.edadPerro = edadPerro;
 	}
-	public Integer getAnosPerros() {
-		return anosPerros;
+	public Double getMeses() {
+		return meses;
 	}
-	public void setAnosPerros(Integer anosPerros) {
-		this.anosPerros = anosPerros;
+	public void setMeses(Double meses) {
+		this.meses = meses;
 	}
-	
-	
-	
+
 }

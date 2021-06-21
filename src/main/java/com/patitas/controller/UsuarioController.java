@@ -13,4 +13,7 @@ import com.patitas.repository.UserRepository;
 public class UsuarioController {
 	@Autowired
 	UserRepository usuarioRepository;
+	
+	
+	
 }

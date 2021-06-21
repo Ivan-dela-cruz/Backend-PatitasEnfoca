@@ -7,9 +7,15 @@ public class UsuarioRequest {
 	
 	private String nombre;
 	
+	private String username;
+	
 	private String apellido;
 
 	private String identificacion;
+	
+	private String email;
+	
+	private String genero;
 
 	public String getId() {
 		return id;
@@ -41,6 +47,30 @@ public class UsuarioRequest {
 
 	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
+	}
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 
 	@Override
